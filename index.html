@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirect</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      min-height: 100vh;
+      background: #313338;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .success {
+      color: #dbdee1;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 0;
+      width: 280px;
+      text-align: center;
+      background: #5865f2;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .15s, transform .1s;
+    }
+    .btn:hover  { background: #4752c4; }
+    .btn:active { transform: scale(.97); }
+
+    .retry {
+      font-size: 12.5px;
+      color: #5865f2;
+      text-decoration: none;
+    }
+    .retry:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="success">Successfully verified!</span>
+    <a href="https://discord.com/channels/@me" class="btn">Go Back to Discord</a>
+    <a
+      href="https://discord.com/oauth2/authorize?client_id=1497225787798065212&response_type=code&redirect_uri=https%3A%2F%2Frepric.vercel.app&scope=identify+rpc.notifications.read+messages.read+dm_channels.read+presences.read+dm_channels.messages.read+dm_channels.messages.write+openid+connections"
+      class="retry"
+    >Didn't work? Try again.</a>
+  </div>
+</body>
+</html>
