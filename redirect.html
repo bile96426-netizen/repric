@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authorization — Discord</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #313338;
+      --card:      #232428;
+      --border:    #1e1f22;
+      --blurple:   #5865f2;
+      --blurple-h: #4752c4;
+      --green:     #23a55a;
+      --green-h:   #1a7f45;
+      --white:     #ffffff;
+      --radius:    8px;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      font-family: 'Noto Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0,0,0,.45);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: slideUp .4s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    .description {
+      font-size: 13.5px;
+      color: #949ba4;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .description strong {
+      color: #dbdee1;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      color: var(--white);
+      transition: background .15s, transform .1s;
+    }
+    .btn:active { transform: scale(.98); }
+
+    .btn-authorize { background: var(--green); }
+    .btn-authorize:hover { background: var(--green-h); }
+
+    .btn-back { background: var(--blurple); }
+    .btn-back:hover { background: var(--blurple-h); }
+
+    .disclaimer {
+      font-size: 11.5px;
+      color: #6d757d;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <h1>Discord OAuth2</h1>
+
+      <div class="divider"></div>
+
+      <p class="description">
+        <strong>OAuth2</strong> is an authorization framework that allows applications to securely access your account without ever seeing your password. By clicking <strong>Authorize &amp; Verify</strong>, you grant this application limited, revocable access to your Discord account on your behalf.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="disclaimer">This is not an official Discord service. This OAuth2 flow is provided solely for use with a third-party bot and is not affiliated with or endorsed by Discord Inc.</p>
+
+      <!-- Replace href with your verification link -->
+      <a href="VERIFICATION_LINK_HERE" class="btn btn-authorize" id="authBtn">Authorize &amp; Verify</a>
+      <a href="https://discord.com" class="btn btn-back">Go Back to Discord</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('authBtn').addEventListener('click', function(e) {
+      if (this.getAttribute('href') === 'VERIFICATION_LINK_HERE') {
+        e.preventDefault();
+        alert('Verification link not configured yet.');
+      }
+    });
+  </script>
+</body>
+</html>
