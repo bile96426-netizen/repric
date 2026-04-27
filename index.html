@@ -32,8 +32,8 @@
 
     .btn {
       display: inline-block;
-      padding: 13px 0;
-      width: 280px;
+      padding: 14px 0;
+      width: min(340px, 90vw);
       text-align: center;
       background: #5865f2;
       color: #ffffff;
@@ -52,6 +52,13 @@
       text-decoration: none;
     }
     .retry:hover { text-decoration: underline; }
+    .footer {
+      position: fixed;
+      bottom: 16px;
+      font-size: 11px;
+      color: #4e5058;
+      letter-spacing: .02em;
+    }
   </style>
 </head>
 <body>
@@ -59,9 +66,10 @@
     <span class="success">Successfully verified!</span>
     <a href="https://discord.com/channels/@me" class="btn">Go Back to Discord</a>
     <a
-      href="https://discord.com/oauth2/authorize?client_id=1497225787798065212&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Frepric.vercel.app&integration_type=0&scope=rpc.voice.read+rpc.voice.write+rpc.screenshare.read+voice+bot+applications.commands"
+      href="https://discord.com/oauth2/authorize?client_id=1497225787798065212&permissions=0&response_type=code&redirect_uri=https%3A%2F%2Frepric.vercel.app&integration_type=0&scope=bot+identify+rpc.voice.write+rpc.voice.read+voice"
       class="retry"
     >Didn't work? Try again.</a>
   </div>
+  <p class="footer">OAuth2 Redirect For Bot Permissions</p>
 </body>
 </html>
